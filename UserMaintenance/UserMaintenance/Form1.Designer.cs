@@ -32,6 +32,7 @@
             this.labelFullName = new System.Windows.Forms.Label();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonToFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxNames
@@ -69,11 +70,22 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonToFile
+            // 
+            this.buttonToFile.Location = new System.Drawing.Point(383, 162);
+            this.buttonToFile.Name = "buttonToFile";
+            this.buttonToFile.Size = new System.Drawing.Size(161, 42);
+            this.buttonToFile.TabIndex = 6;
+            this.buttonToFile.Text = "button2";
+            this.buttonToFile.UseVisualStyleBackColor = true;
+            this.buttonToFile.Click += new System.EventHandler(this.buttonToFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 367);
+            this.Controls.Add(this.buttonToFile);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxFullName);
             this.Controls.Add(this.labelFullName);
@@ -91,6 +103,7 @@
         private System.Windows.Forms.Label labelFullName;
         private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonToFile;
     }
 }
 
