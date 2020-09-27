@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.listBoxNames = new System.Windows.Forms.ListBox();
-            this.labelFirstName = new System.Windows.Forms.Label();
-            this.labelLastName = new System.Windows.Forms.Label();
-            this.textBoxFirstName = new System.Windows.Forms.TextBox();
-            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.labelFullName = new System.Windows.Forms.Label();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonToFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxNames
@@ -45,37 +44,21 @@
             this.listBoxNames.Size = new System.Drawing.Size(274, 344);
             this.listBoxNames.TabIndex = 0;
             // 
-            // labelFirstName
+            // labelFullName
             // 
-            this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(294, 13);
-            this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(51, 20);
-            this.labelFirstName.TabIndex = 1;
-            this.labelFirstName.Text = "label1";
+            this.labelFullName.AutoSize = true;
+            this.labelFullName.Location = new System.Drawing.Point(294, 49);
+            this.labelFullName.Name = "labelFullName";
+            this.labelFullName.Size = new System.Drawing.Size(51, 20);
+            this.labelFullName.TabIndex = 2;
+            this.labelFullName.Text = "label2";
             // 
-            // labelLastName
+            // textBoxFullName
             // 
-            this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(294, 49);
-            this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(51, 20);
-            this.labelLastName.TabIndex = 2;
-            this.labelLastName.Text = "label2";
-            // 
-            // textBoxFirstName
-            // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(351, 13);
-            this.textBoxFirstName.Name = "textBoxFirstName";
-            this.textBoxFirstName.Size = new System.Drawing.Size(255, 26);
-            this.textBoxFirstName.TabIndex = 3;
-            // 
-            // textBoxLastName
-            // 
-            this.textBoxLastName.Location = new System.Drawing.Point(351, 49);
-            this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(255, 26);
-            this.textBoxLastName.TabIndex = 4;
+            this.textBoxFullName.Location = new System.Drawing.Point(351, 49);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.Size = new System.Drawing.Size(255, 26);
+            this.textBoxFullName.TabIndex = 4;
             // 
             // buttonAdd
             // 
@@ -87,16 +70,25 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonToFile
+            // 
+            this.buttonToFile.Location = new System.Drawing.Point(383, 162);
+            this.buttonToFile.Name = "buttonToFile";
+            this.buttonToFile.Size = new System.Drawing.Size(161, 42);
+            this.buttonToFile.TabIndex = 6;
+            this.buttonToFile.Text = "button2";
+            this.buttonToFile.UseVisualStyleBackColor = true;
+            this.buttonToFile.Click += new System.EventHandler(this.buttonToFile_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 367);
+            this.Controls.Add(this.buttonToFile);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.textBoxLastName);
-            this.Controls.Add(this.textBoxFirstName);
-            this.Controls.Add(this.labelLastName);
-            this.Controls.Add(this.labelFirstName);
+            this.Controls.Add(this.textBoxFullName);
+            this.Controls.Add(this.labelFullName);
             this.Controls.Add(this.listBoxNames);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -108,11 +100,10 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBoxNames;
-        private System.Windows.Forms.Label labelFirstName;
-        private System.Windows.Forms.Label labelLastName;
-        private System.Windows.Forms.TextBox textBoxFirstName;
-        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.Label labelFullName;
+        private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonToFile;
     }
 }
 
