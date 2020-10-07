@@ -16,15 +16,49 @@ namespace ExcelGeneralas
     {
         RealEstateEntities context = new RealEstateEntities();
         List<Flat> Flats;
+        Excel.Application xlApp;
+        Excel.Workbook xlWB;
+        Excel.Worksheet xlSheet;
         public Form1()
         {
             InitializeComponent();
             LoadData();
+            CreateExcel();
         }
 
         private void LoadData()
         {
             Flats = context.Flats.ToList();
+        }
+
+        private void CreateExcel()
+        {
+            try
+            {
+                xlApp = new Excel.Application();
+                xlWB = new Excel.Workbook();
+                xlSheet = new Excel.Worksheet();
+
+                CreateTabel();
+
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex)
+            {
+                string errorMSG = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errorMSG, "Error");
+
+                xlWB.Close(false, Type.Missing, Type.Missing);
+                xlApp.Quit();
+                xlWB = null;
+                xlSheet = null;
+            }
+        }
+
+        private void CreateTabel()
+        {
+            throw new NotImplementedException();
         }
     }
 }
