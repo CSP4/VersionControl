@@ -36,8 +36,8 @@ namespace ExcelGeneralas
             try
             {
                 xlApp = new Excel.Application();
-                xlWB = new Excel.Workbook();
-                xlSheet = new Excel.Worksheet();
+                xlWB = xlApp.Workbooks.Add(Missing.Value);
+                xlSheet = xlWB.ActiveSheet;
 
                 CreateTabel();
 
@@ -92,10 +92,31 @@ namespace ExcelGeneralas
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 8] = "";
+                values[counter, 8] = "="+GetCell(counter+2, 8)+"*1000000/"+ GetCell(counter+2, 7);
 
                 counter++;
             }
+
+            xlSheet.get_Range(GetCell(2, 1), GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
         }
+
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+        }
+
+
     }
 }
