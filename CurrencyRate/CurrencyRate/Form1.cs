@@ -1,4 +1,5 @@
-﻿using CurrencyRate.MNBServiceReference;
+﻿using CurrencyRate.Entities;
+using CurrencyRate.MNBServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,11 @@ namespace CurrencyRate
 {
     public partial class Form1 : Form
     {
-        
+        BindingList<RateData> Rates = new BindingList<RateData>();
         public Form1()
         {
             GetExchangeRates();
+            dataGridView1.DataSource = Rates;    
         }
 
         private void GetExchangeRates()
