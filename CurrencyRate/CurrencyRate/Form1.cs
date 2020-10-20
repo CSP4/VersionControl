@@ -19,6 +19,8 @@ namespace CurrencyRate
         BindingList<RateData> Rates = new BindingList<RateData>();
         public Form1()
         {
+            InitializeComponent();
+
             GetExchangeRates();
             dataGridView1.DataSource = Rates;
             CreateChart();
