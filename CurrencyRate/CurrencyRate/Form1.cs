@@ -111,7 +111,7 @@ namespace CurrencyRate
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
-                if (unit != 0) rate.Value = value/unit;
+                if (unit != 0) rate.Value = value/(unit*100);
             }
         }
 
