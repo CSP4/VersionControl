@@ -21,6 +21,13 @@ namespace CurrencyRate
         {
             InitializeComponent();
 
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
+
             GetExchangeRates();
             dataGridView1.DataSource = Rates;
             CreateChart();
@@ -54,9 +61,9 @@ namespace CurrencyRate
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = comboBox1.SelectedItem.ToString(),
+                startDate = dateTimePicker1.Value.Year.ToString()+ "-"+dateTimePicker1.Value.Month.ToString() +"-"+ dateTimePicker1.Value.Day.ToString(),
+                endDate = dateTimePicker2.Value.Year.ToString() + "-" + dateTimePicker2.Value.Month.ToString() + "-" + dateTimePicker2.Value.Day.ToString()
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -82,5 +89,21 @@ namespace CurrencyRate
                 if (unit != 0) rate.Value = value/unit;
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
     }
 }
