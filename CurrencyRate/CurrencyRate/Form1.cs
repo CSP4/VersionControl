@@ -17,11 +17,32 @@ namespace CurrencyRate
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<String> Currencies = new BindingList<string>();
         public Form1()
         {
             InitializeComponent();
 
-            RefreshData();
+            comboBox1.DataSource = Currencies;
+            
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+            string curr = "";
+
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                foreach (XmlElement childElement in element.ChildNodes)
+                {
+                    curr = childElement.InnerText;
+                    Currencies.Add(curr);
+                }  
+            }
+
+                RefreshData();
         }
 
         private void RefreshData()
@@ -81,7 +102,11 @@ namespace CurrencyRate
 
                 rate.Date= DateTime.Parse(element.GetAttribute("date"));
 
+
+
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
@@ -104,6 +129,7 @@ namespace CurrencyRate
         {
             RefreshData();
         }
+
 
     }
 }
