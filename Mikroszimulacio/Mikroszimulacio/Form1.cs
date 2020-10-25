@@ -22,10 +22,11 @@ namespace Mikroszimulacio
         {
             InitializeComponent();
 
-            Population=GetPopulation(@"c:\Temp\születés.csv");
+            Population=GetPopulation(@"c:\Temp\nép-teszt.csv");
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
+            //dataGridView1.DataSource = Population;
         }
 
         List<DeathProbability> GetDeathProbabilities(string csvpath)
@@ -41,7 +42,7 @@ namespace Mikroszimulacio
                     {
                         Gender = (Gender)Enum.Parse(typeof(Gender), line[0]),
                         Age = int.Parse(line[1]),
-                        Probability = int.Parse(line[2])
+                        Probability = double.Parse(line[2])
                     });
                 }
             }
@@ -62,7 +63,7 @@ namespace Mikroszimulacio
                     {
                         Age = int.Parse(line[0]),
                         NbrOfChildren = int.Parse(line[1]),
-                        Probability = int.Parse(line[2])
+                        Probability = double.Parse(line[2])
                     });
                 }
             }
