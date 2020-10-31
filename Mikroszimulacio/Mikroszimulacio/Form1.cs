@@ -18,6 +18,8 @@ namespace Mikroszimulacio
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<int> Males = new List<int>();
+        List<int> Females = new List<int>();
         
         Random rng = new Random(1234);
 
@@ -129,11 +131,13 @@ namespace Mikroszimulacio
 
         private void Simulation(int endyear)
         {
-            Population = GetPopulation(@"c:\Temp\nép.csv");
+            Population = GetPopulation(textBoxBrowse.Text);
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
             //dataGridView1.DataSource = BirthProbabilities;
+            Males.Clear();
+            Females.Clear();
 
             for (int year = 2005; year <= endyear; year++)
             {
@@ -151,14 +155,26 @@ namespace Mikroszimulacio
                 //Console.WriteLine(
                 //    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
 
-                DisplayResults();
+                Males.Add(nbrOfMales);
+                Females.Add(nbrOfFemales);
 
             }
+            DisplayResults();
         }
 
         private void DisplayResults()
         {
-            throw new NotImplementedException();
+            richTextBox1.Text = "";
+            int aktyear;
+            for (int i = 0; i < Males.Count(); i++)
+            {
+                aktyear = 2005 + i;
+                richTextBox1.Text = richTextBox1.Text + 
+                "Szimulációs év: "+ aktyear +
+                "\n\tFerfiak: " + Males[i] + 
+                "\n\tNők: " + Females[i] + 
+                "\n\n";
+            }
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
