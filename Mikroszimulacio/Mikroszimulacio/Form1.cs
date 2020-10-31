@@ -141,7 +141,6 @@ namespace Mikroszimulacio
                 }
             }
 
-            return population;
-        }
+            return population;       }
     }
 }
