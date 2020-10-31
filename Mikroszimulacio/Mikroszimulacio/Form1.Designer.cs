@@ -65,7 +65,7 @@
             0,
             0});
             this.numericUpDownYear.Minimum = new decimal(new int[] {
-            2002,
+            2006,
             0,
             0,
             0});
@@ -73,7 +73,7 @@
             this.numericUpDownYear.Size = new System.Drawing.Size(81, 26);
             this.numericUpDownYear.TabIndex = 2;
             this.numericUpDownYear.Value = new decimal(new int[] {
-            2002,
+            2010,
             0,
             0,
             0});
@@ -94,6 +94,7 @@
             this.buttonBrowse.TabIndex = 4;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // buttonStart
             // 
@@ -103,6 +104,7 @@
             this.buttonStart.TabIndex = 5;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // richTextBox1
             // 
