@@ -82,5 +82,15 @@ namespace PresentFactory
         {
             Factory = new BallFactory();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var cd = new ColorDialog();
+
+            cd.Color = button3.BackColor;
+            if (cd.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = cd.Color;
+        }
     }
 }
