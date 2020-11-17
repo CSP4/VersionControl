@@ -25,7 +25,7 @@ namespace PresentFactory.Entities
 
         protected void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.AliceBlue),0,0,Width,Height);
+            g.FillEllipse(new SolidBrush(Color.DarkBlue),0,0,Width,Height);
         }
 
         public void MoveBall()
