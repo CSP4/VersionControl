@@ -69,6 +69,8 @@ namespace PresentFactory
 
                 if (toy.ToyType == "Labda")
                 {
+                    
+                    
                     if (toy.up)
                     {
                         toy.Top -= 1;
