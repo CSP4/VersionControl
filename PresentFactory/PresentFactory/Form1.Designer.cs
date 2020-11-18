@@ -61,7 +61,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(0, 41);
+            this.button3.Location = new System.Drawing.Point(82, 40);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 33);
             this.button3.TabIndex = 3;
@@ -141,6 +141,7 @@
             // 
             // BallMoveTimer
             // 
+            this.BallMoveTimer.Enabled = true;
             this.BallMoveTimer.Interval = 10;
             this.BallMoveTimer.Tick += new System.EventHandler(this.BallMoveTimer_Tick);
             // 

@@ -13,7 +13,10 @@ namespace PresentFactory.Entities
         public Color BallColor { get; set; }
         public Toy CreateNew()
         {
-            return new Ball(BallColor);
+            return new Ball(BallColor)
+            {
+                up = true
+            };
         }
 
     }

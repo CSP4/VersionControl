@@ -111,9 +111,22 @@ namespace PresentFactory
 
         private void BallMoveTimer_Tick(object sender, EventArgs e)
         {
-            foreach (Ball balls in _toys)
+            foreach (var balls in _toys)
             {
-                balls.Top += 1;   
+                if (balls.ToyType=="Labda")
+                {
+                    if (balls.up)
+                    {
+                        balls.Top -= 1;
+                        if (balls.Top == 120) balls.up = false;
+                    }
+                    else
+                    {
+                        balls.Top += 1;
+                        if (balls.Top == 150) balls.up = true;
+                    }
+                    
+                }
             }
         }
     }

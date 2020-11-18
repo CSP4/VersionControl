@@ -11,6 +11,7 @@ namespace PresentFactory.Abstractions
     public abstract class Toy : Label
     {
         public string ToyType { get; set; }
+        public bool up { get; set; }
         public Toy()
         {
             AutoSize = false;
