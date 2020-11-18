@@ -99,5 +99,14 @@ namespace PresentFactory
             if (cd.ShowDialog() != DialogResult.OK) return;
             button.BackColor = cd.Color;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactoryCS
+            {
+                PresentMainColor = button5.BackColor,
+                PresentLineColor = button6.BackColor
+            };
+        }
     }
 }
