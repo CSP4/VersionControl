@@ -17,7 +17,10 @@ namespace PresentFactory.Abstractions
             Height = Width;
             Top = 150;
             Paint += Ball_Paint;
+            Click += Toy_Click;
         }
+
+        protected abstract void Toy_Click(object sender, EventArgs e);
 
         private void Ball_Paint(object sender, PaintEventArgs e)
         {

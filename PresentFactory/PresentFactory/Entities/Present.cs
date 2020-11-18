@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PresentFactory.Entities
 {
@@ -22,6 +23,11 @@ namespace PresentFactory.Entities
             g.FillRectangle(PresentMainColor, 0, 0, Width, Height);
             g.FillRectangle(PresentLineColor, 0, Height / 5 * 2, Width , Height / 5 );
             g.FillRectangle(PresentLineColor, Width / 5 * 2, 0, Width /5, Height);
+        }
+
+        protected override void Toy_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ez egy Ajándék!");
         }
     }
 }
