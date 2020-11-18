@@ -41,8 +41,11 @@ namespace PresentFactory
         {
             InitializeComponent();
 
-            Factory = new BallFactory();
-            
+            Factory = new BallFactory
+            {
+                BallColor = button3.BackColor
+            };
+
         }
 
         private void createTimer_Tick(object sender, EventArgs e)

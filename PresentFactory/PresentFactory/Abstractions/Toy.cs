@@ -15,6 +15,7 @@ namespace PresentFactory.Abstractions
             AutoSize = false;
             Width = 50;
             Height = Width;
+            Top = 150;
             Paint += Ball_Paint;
         }
 
