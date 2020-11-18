@@ -143,7 +143,6 @@
             // 
             this.BallMoveTimer.Enabled = true;
             this.BallMoveTimer.Interval = 10;
-            this.BallMoveTimer.Tick += new System.EventHandler(this.BallMoveTimer_Tick);
             // 
             // Form1
             // 

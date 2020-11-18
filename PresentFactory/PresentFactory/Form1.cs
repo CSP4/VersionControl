@@ -21,8 +21,8 @@ namespace PresentFactory
         public IToyFactory Factory
         {
             get { return _factory; }
-            set 
-            { 
+            set
+            {
                 _factory = value;
                 DisplayNext();
             }
@@ -62,72 +62,66 @@ namespace PresentFactory
             foreach (var toy in _toys)
             {
                 toy.MoveToy();
-                if (toy.Left>maxPosition)
+                if (toy.Left > maxPosition)
                 {
                     maxPosition = toy.Left;
                 }
-            }
 
-            if (maxPosition >= 1000)
-            {
-                var oldestToy = _toys[0];
-                _toys.Remove(oldestToy);
-                mainPanel.Controls.Remove(oldestToy);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Factory = new CarFactory();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Factory = new BallFactory
-            {
-                BallColor = button3.BackColor
-            };
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            var cd = new ColorDialog();
-
-            cd.Color = button3.BackColor;
-            if (cd.ShowDialog() != DialogResult.OK) return;
-            button.BackColor = cd.Color;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Factory = new PresentFactoryCS
-            {
-                PresentMainColor = button5.BackColor,
-                PresentLineColor = button6.BackColor
-            };
-        }
-
-        private void BallMoveTimer_Tick(object sender, EventArgs e)
-        {
-            foreach (var balls in _toys)
-            {
-                if (balls.ToyType=="Labda")
+                if (toy.ToyType == "Labda")
                 {
-                    if (balls.up)
+                    if (toy.up)
                     {
-                        balls.Top -= 1;
-                        if (balls.Top == 120) balls.up = false;
+                        toy.Top -= 1;
+                        if (toy.Top == 120) toy.up = false;
                     }
                     else
                     {
-                        balls.Top += 1;
-                        if (balls.Top == 150) balls.up = true;
+                        toy.Top += 1;
+                        if (toy.Top == 150) toy.up = true;
                     }
-                    
+                }
+
+                if (maxPosition >= 1000)
+                {
+                    var oldestToy = _toys[0];
+                    _toys.Remove(oldestToy);
+                    mainPanel.Controls.Remove(oldestToy);
                 }
             }
         }
+
+            private void button1_Click(object sender, EventArgs e)
+            {
+                Factory = new CarFactory();
+            }
+
+            private void button2_Click(object sender, EventArgs e)
+            {
+                Factory = new BallFactory
+                {
+                    BallColor = button3.BackColor
+                };
+
+            }
+
+            private void button3_Click(object sender, EventArgs e)
+            {
+                var button = (Button)sender;
+                var cd = new ColorDialog();
+
+                cd.Color = button3.BackColor;
+                if (cd.ShowDialog() != DialogResult.OK) return;
+                button.BackColor = cd.Color;
+            }
+
+            private void button4_Click(object sender, EventArgs e)
+            {
+                Factory = new PresentFactoryCS
+                {
+                    PresentMainColor = button5.BackColor,
+                    PresentLineColor = button6.BackColor
+                };
+            }
+        
+        }
     }
-}
