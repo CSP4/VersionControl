@@ -108,5 +108,13 @@ namespace PresentFactory
                 PresentLineColor = button6.BackColor
             };
         }
+
+        private void BallMoveTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (Ball balls in _toys)
+            {
+                balls.Top += 1;   
+            }
+        }
     }
 }

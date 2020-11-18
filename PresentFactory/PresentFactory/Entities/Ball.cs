@@ -15,6 +15,7 @@ namespace PresentFactory.Entities
         Random rnd = new Random();
         public Ball(Color color)
         {
+            ToyType = "Labda";
             BallColor = new SolidBrush(color);
             Click += Ball_Click;
         }
@@ -30,9 +31,5 @@ namespace PresentFactory.Entities
             g.FillEllipse(BallColor,0,0,Width,Height);
         }
 
-        protected override void Toy_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ez egy Labda!");
-        }
     }
 }

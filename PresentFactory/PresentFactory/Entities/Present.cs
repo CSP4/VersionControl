@@ -15,6 +15,7 @@ namespace PresentFactory.Entities
         public SolidBrush PresentLineColor { get; private set; }
         public Present(Color color1, Color color2)
         {
+            ToyType = "Ajándék";
             PresentMainColor = new SolidBrush(color1);
             PresentLineColor = new SolidBrush(color2);
         }
@@ -25,9 +26,5 @@ namespace PresentFactory.Entities
             g.FillRectangle(PresentLineColor, Width / 5 * 2, 0, Width /5, Height);
         }
 
-        protected override void Toy_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ez egy Ajándék!");
-        }
     }
 }

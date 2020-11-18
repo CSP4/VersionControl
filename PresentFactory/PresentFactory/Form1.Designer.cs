@@ -39,6 +39,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.BallMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +139,11 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button3_Click);
             // 
+            // BallMoveTimer
+            // 
+            this.BallMoveTimer.Interval = 10;
+            this.BallMoveTimer.Tick += new System.EventHandler(this.BallMoveTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -164,6 +170,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Timer BallMoveTimer;
     }
 }
 

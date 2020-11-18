@@ -10,6 +10,7 @@ namespace PresentFactory.Abstractions
 {
     public abstract class Toy : Label
     {
+        public string ToyType { get; set; }
         public Toy()
         {
             AutoSize = false;
@@ -20,7 +21,10 @@ namespace PresentFactory.Abstractions
             Click += Toy_Click;
         }
 
-        protected abstract void Toy_Click(object sender, EventArgs e);
+        public void Toy_Click(object sender, EventArgs e) 
+        {
+            MessageBox.Show("Ez egy " + ToyType + "!");
+        }
 
         private void Ball_Paint(object sender, PaintEventArgs e)
         {
